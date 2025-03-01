@@ -114,10 +114,10 @@ jobs:
         path: /opt/images
         
      - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
-      with:
-        repo_token: ${{ secrets.R_TOKEN }}
-        file: /opt/images/*.trx
-        tag: AtuoBuild
-        overwrite: true
-        file_glob: true
+       uses: svenstaro/upload-release-action@v1-release
+       with:
+         repo_token: ${{ secrets.R_TOKEN }}
+         file: /opt/images/*.trx
+         tag: AtuoBuild
+         overwrite: true
+         file_glob: true
