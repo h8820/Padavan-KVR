@@ -93,7 +93,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SFTP=y"
         echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y"
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=y"
-     
+        echo "CONFIG_FIRMWARE_INCLUDE_WIRELESS_TOOLS=y"
         ###############################################################################
         ##########
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
