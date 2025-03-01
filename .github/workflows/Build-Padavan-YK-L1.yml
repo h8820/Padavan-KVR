@@ -94,6 +94,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y"
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=y"
         echo "CONFIG_FIRMWARE_INCLUDE_WIRELESS_TOOLS=y"
+        echo "CONFIG_FIRMWARE_INCLUDE_KOOLPROXY=y"
         ###############################################################################
         ##########
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
@@ -112,12 +113,11 @@ jobs:
         name: Padavan-packages
         path: /opt/images
         
-    - name: Upload firmware to release
-      uses: actions/upload-artifact@master
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
+        repo_token: ${{ secrets.R_TOKEN }}
+        file: /opt/images/*.trx
+        tag: AtuoBuild
+        overwrite: true
+        file_glob: true
