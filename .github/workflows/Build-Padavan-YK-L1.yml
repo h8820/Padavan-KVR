@@ -113,7 +113,7 @@ jobs:
         path: /opt/images
         
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@master
+      uses: actions/upload-artifact@master
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
